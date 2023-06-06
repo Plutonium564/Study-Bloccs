@@ -13,7 +13,7 @@
 
 <body>
   <h1>Register for Study Bloccs</h1>
-  <form action="">
+  <div action="">
     <!-- Headings for the form -->
     <div class="headingsContainer">
       <h3>REGISTER</h3>
@@ -57,27 +57,15 @@
         />
 
         
-        
-        <!-- sub container for the checkbox and forgot password link -->
-        <div class="subcontainer">
-          <label>
-            <input type="checkbox" checked="checked" name="remember" /> Remember
-            me
-          
-        </div>
-        
         <!-- Submit button -->
         <div class="button">
-        <button type="submit">Register</button>
-        <a href="./options.html">
-          <input type="submit">
-        </a>
+          <button id="register" href="./options.html">Register</button>
         </div>
 
       <!-- Submit button -->
       
     </div>
-  </form>
+  </div>
   
   <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
@@ -95,6 +83,40 @@
   
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    document.getElementById('register').addEventListener('click', registerUser)
+
+
+    function registerUser(){
+      var Name = document.getElementById('name').value;
+      var Class = document.getElementById('class').value;
+      var DOB = document.getElementById('dob').value;
+
+
+      if(Name.length !== 0 ){
+        if(Class.length !== 0){
+          if(DOB.length !== 0){
+            db.collection('users').add({
+              name_:Name,
+              class_:Class,
+              dob_:DOB
+
+            }).then((docref) => {
+                console.log('Updated in DB')
+                window.open('./options.html','_self')
+            });
+            
+          }else{
+            alert('Please enter your Date of Birth!!')
+          }
+        }else{
+          alert('Please enter the class you are studying!')
+        }
+      }else{
+        alert('Please enter your name');
+      }
+    }
 
 </script>
 </body>
