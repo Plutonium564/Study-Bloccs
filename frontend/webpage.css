@@ -2,7 +2,7 @@
     text-align: center;
 }
 #heading_logo{
-    height: 99px;
+    height: 126px;
     width: 243px;
 }
 #side_contents{
@@ -15,6 +15,7 @@ html{
 }
 #main_heading{
     color: azure;
+    font-size: 170px;
 }
 a#about_id{
     color: aliceblue;
@@ -22,11 +23,17 @@ a#about_id{
 #study_bloccs{
     text-align: center;
     font-family: 'Bungee', cursive;
-    font-size: 70px;
 }
-
 
 #loginBtn{
     cursor: pointer;
     color: white;
+    font-size: 70px;
+}
+#about_us{
+    margin-top: 700px;
+}
+#about{
+    color: aliceblue;
+    margin-top: 250px;
 }
