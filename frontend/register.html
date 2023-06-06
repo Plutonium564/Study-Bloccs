@@ -23,31 +23,51 @@
     <!-- Main container for all inputs -->
     <div class="mainContainer">
 
-      <br /><br />
-      <label for="name">Your name</label>
-      <input type="text" placeholder="Enter name" name="name" required />
+        <br /><br />
+        <label for="name">Your name</label>
+        <input
+          type="text"
+          placeholder="Enter name"
+          name="name"
+          id="name"
+          required
+        />
 
       <br /><br />
 
-      <!-- Class -->
-      <label for="number">Your Class</label>
-      <input type="number" placeholder="Class" name="number" required />
-      <br /><br />
+        <!-- Class -->
+        <label for="number">Your Class</label>
+        <input
+          type="number"
+          placeholder="Class"
+          name="number"
+          id="class"
+          required
+        />
+        <br /><br />
 
-      <!-- Date of birth -->
-      <label for="dob">enter DOB</label><br>
-      <input type="date" placeholder="enter DOB" name="dob" required />
+        <!-- Date of birth -->
+        <label for="dob">enter DOB</label><br>
+        <input
+          type="date"
+          placeholder="enter DOB"
+          name="dob"
+          id="dob"
+          required
+        />
 
+        
+        
+        <!-- sub container for the checkbox and forgot password link -->
+        <div class="subcontainer">
+          <label>
+            <input type="checkbox" checked="checked" name="remember" /> Remember
+            me
+          
+        </div>
 
-
-      <!-- sub container for the checkbox and forgot password link -->
-      <div class="subcontainer">
-        <label>
-          <input type="checkbox" checked="checked" name="remember" /> Remember
-          me
-
-        <!-- Sign up link -->
-        <p class="login">Already a member? <a href="#" id="login">Login here!</a></p>
+        <!-- Submit button -->
+        <button type="submit">Register</button>
       </div>
 
       <!-- Submit button -->
