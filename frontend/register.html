@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="loginpage.css" /> -->
+    <link rel="stylesheet" href="./register.css">
+
+    <title>Login page in HTML</title>
+  </head>
+  <body>
+    <h1>Register for Study Bloccs</h1>
+    <form action="">
+      <!-- Headings for the form -->
+      <div class="headingsContainer">
+        <h3>REGISTER</h3>
+        <p>register with your E-mail</p>
+      </div>
+
+      <!-- Main container for all inputs -->
+      <div class="mainContainer">
+        <!-- Username -->
+        <label for="email" id="user_email">Your Email</label><br />
+        <input
+          type="email"
+          placeholder="Enter E-mail"
+          name="email"
+          required
+        />
+
+        <br /><br />
+        <label for="name">Your name</label>
+        <input
+          type="text"
+          placeholder="Enter name"
+          name="name"
+          required
+        />
+
+        <br /><br />
+
+        <!-- Class -->
+        <label for="number">Your Class</label>
+        <input
+          type="number"
+          placeholder="Class"
+          name="number"
+          required
+        />
+        <br /><br />
+
+        <!-- Date of birth -->
+        <label for="dob">enter DOB</label><br>
+        <input
+          type="date"
+          placeholder="enter DOB"
+          name="dob"
+          required
+        />
+
+        <!-- sub container for the checkbox and forgot password link -->
+        <div class="subcontainer">
+          <label>
+            <input type="checkbox" checked="checked" name="remember" /> Remember
+            me
+          
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit">Register</button>
+
+        <!-- Sign up link -->
+        <p class="login">Already a member? <a href="#">Login here!</a></p>
+      </div>
+    </form>
+  </body>
+</html>
