@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #whiteboard {
+            border: 1px solid black;
+            background-color: white;
+        }
+    </style>
+    <link rel="stylesheet" href="./whiteboard.css">
+    <title>WhiteBoard</title>
+</head>
+
+<body>
+    <canvas id="whiteboard" width="1400" height="750"></canvas>
+    <div>
+        <button id="color-red" onclick="setColor('red')">Red</button>
+        <button id="color-blue" onclick="setColor('blue')">Blue</button>
+        <button id="color-green" onclick="setColor('green')">Green</button>
+        <button id="tool-pen" onclick="setTool('pen')">Pen</button>
+        <button id="tool-pencil" onclick="setTool('pencil')">Pencil</button>
+        <button id="tool-highlighter" onclick="setTool('highlighter')">Highlighter</button>
+        <button id="tool-eraser" onclick="setTool('eraser')">Eraser</button>
+        <button onclick="clearCanvas()">Clear</button>
+    </div>
+
+    <script>
+        // Global variables
+        let canvas = document.getElementById('whiteboard');
+        let context = canvas.getContext('2d');
+        let isDrawing = false;
+        let color = 'black';
+        let tool = 'pen';
+
+        // Event listeners
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseout', stopDrawing);
+
+        // Drawing functions
+        function startDrawing(event) {
+            isDrawing = true;
+            context.beginPath();
+            context.moveTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        function draw(event) {
+            if (!isDrawing) return;
+            context.strokeStyle = color;
+
+            let x = event.clientX - canvas.offsetLeft;
+            let y = event.clientY - canvas.offsetTop;
+
+            switch (tool) {
+                case 'pen':
+                    context.lineTo(x, y);
+                    break;
+                case 'pencil':
+                    context.lineTo(x, y);
+                    context.lineWidth = 2;
+                    break;
+                case 'highlighter':
+                    context.lineTo(x, y);
+                    context.lineWidth = 10;
+                    context.globalAlpha = 0.2;
+                    break;
+                case 'eraser':
+                    context.clearRect(x, y, 10, 10);
+                    break;
+            }
+
+            context.stroke();
+        }
+
+        // Color and tool selection functions
+        function setColor(selectedColor) {
+            color = selectedColor;
+        }
+
+        function setTool(selectedTool) {
+            tool = selectedTool;
+        }
+
+        // Clear canvas function
+        function clearCanvas() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    </script>
+</body>
+
+</html>

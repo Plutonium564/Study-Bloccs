@@ -1,14 +1,14 @@
 button#one {
     height: 111px;
     width: 222px;
-    margin-top: 220px;
+    margin-top: 70px;
     margin-left: 250px;
 }
 
 button#two {
     height: 111px;
     width: 222px;
-    margin-top: 220px;
+    margin-top: 70px;
     margin-left: 500px;
 }
 
@@ -26,6 +26,20 @@ button#four {
     margin-left: 500px;
 }
 
+button#five{
+    height: 111px;
+    width: 222px;
+    margin-top: 200px;
+    margin-left: 250px;
+}
+
+button#six{
+    height: 111px;
+    width: 222px;
+    margin-top: 200px;
+    margin-left: 500px;
+}
+
 html {
     background-image: url(./1390893.jpg);
 }
@@ -35,4 +49,8 @@ img{
 }
 button{
     border-radius: 16px;
+    background-color: aliceblue;
+}
+#heading{
+    margin-top: 100px;
 }
