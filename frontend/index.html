@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Page with Textured Background</title>
+    <style>
+        /* CSS styles for search bar */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .search-input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            max-width: 100%;
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* CSS styles for textured background */
+        body {
+            background-image: url(./1390893.jpg); /* Replace 'texture.jpg' with your own image URL */
+            
+            background-size: auto;
+            background-color: #f1f1f1; /* Fallback color if the image is unavailable */
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Enter your search query">
+        <button class="search-button">Search</button>
+    </div>
+</body>
+</html>
