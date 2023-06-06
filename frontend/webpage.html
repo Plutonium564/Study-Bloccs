@@ -72,7 +72,8 @@
 
             firebase.auth().signInWithPopup(provider).then(res => {
                 console.log(res.user);
-                
+                window.open('./register.html','_self')
+
             }).catch(e => {
                 console.log(e)
             })
