@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Group Chat</title>
+    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js"></script>
+    <style>
+        /* CSS styles for chat container */
+        body {
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .chat-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        /* CSS styles for chat messages */
+        .message {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div id="chatMessages"></div>
+        <div>
+            <input type="text" id="messageInput" placeholder="Type your message">
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            // Add your Firebase project configuration here
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        // Get a reference to the database
+        const database = firebase.database();
+
+        // Get DOM elements
+        const chatMessages = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+
+        // Function to append chat message to the UI
+        function appendMessage(username, message) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.textContent = `${username}: ${message}`;
+            chatMessages.appendChild(messageElement);
+        }
+
+        // Send chat message
+        sendButton.addEventListener('click', () => {
+            const message = messageInput.value;
+            if (message) {
+                const username = 'YourUsername'; // Set your username here
+                const chatRef = database.ref('chat');
+                chatRef.push({
+                    username: username,
+                    message: message
+                });
+                messageInput.value = '';
+            }
+        });
+
+        // Listen for new chat messages
+        const chatRef = database.ref('chat');
+        chatRef.on('child_added', (snapshot) => {
+            const { username, message } = snapshot.val();
+            appendMessage(username, message);
+        });
+    </script>
+</body>
+</html>
