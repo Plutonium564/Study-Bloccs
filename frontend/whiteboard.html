@@ -26,20 +26,19 @@
     </div>
 
     <script>
-        // Global variables
+
         let canvas = document.getElementById('whiteboard');
         let context = canvas.getContext('2d');
         let isDrawing = false;
         let color = 'black';
         let tool = 'pen';
 
-        // Event listeners
+
         canvas.addEventListener('mousedown', startDrawing);
         canvas.addEventListener('mouseup', stopDrawing);
         canvas.addEventListener('mousemove', draw);
         canvas.addEventListener('mouseout', stopDrawing);
 
-        // Drawing functions
         function startDrawing(event) {
             isDrawing = true;
             context.beginPath();
@@ -78,7 +77,6 @@
             context.stroke();
         }
 
-        // Color and tool selection functions
         function setColor(selectedColor) {
             color = selectedColor;
         }
@@ -87,7 +85,6 @@
             tool = selectedTool;
         }
 
-        // Clear canvas function
         function clearCanvas() {
             context.clearRect(0, 0, canvas.width, canvas.height);
         }
