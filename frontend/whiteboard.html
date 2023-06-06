@@ -30,6 +30,13 @@
             border-radius: 50%;
             display: inline-block;
         }
+        #color-black{
+            width: 25px;
+            height: 25px;
+            background-color: black;
+            border-radius: 50%;
+            display: inline-block;
+        }
 
         .button{
             border-radius: 20px;
@@ -54,13 +61,15 @@
 
 <body>
     <canvas id="whiteboard" width="1400" height="750"></canvas>
-    <div>
+    <div class="main-div">
+        <button id="color-black" onclick="setColor('black')"></button>
         <button id="color-red" onclick="setColor('red')"></button>
         <button id="color-blue" onclick="setColor('blue')"></button>
         <button id="color-green" onclick="setColor('green')"></button>
         <button class="button" id="tool-pen" onclick="setTool('pen')">Pen</button>
         <button class="button" id="tool-pencil" onclick="setTool('pencil')">Pencil</button>
         <button class="button" id="tool-highlighter" onclick="setTool('highlighter')">Highlighter</button>
+        <button class="button" id="tool-brush" onclick="setTool('brush')">Brush</button>
         <button class="button" id="tool-eraser" onclick="setTool('eraser')">Eraser</button>
         <button class="button" onclick="clearCanvas()">Clear</button>
         <button class="button" onclick="back()">Back</button>
@@ -103,16 +112,22 @@
                     break;
                 case 'pencil':
                     context.lineTo(x, y);
-                    context.lineWidth = 2;
+                    context.lineWidth = 3;
                     break;
                 case 'highlighter':
                     context.lineTo(x, y);
                     context.lineWidth = 10;
                     context.globalAlpha = 0.2;
                     break;
-                case 'eraser':
-                    context.clearRect(x, y, 10, 10);
+                case 'brush':
+                    context.lineTo(x,y);
+                    context.lineWidth = 25;
+                    context.globalAlpha = 0.5;
                     break;
+                case 'eraser':
+                    context.clearRect(x, y, 100, 100);
+                    break;
+
             }
 
             context.stroke();
@@ -120,6 +135,7 @@
 
         function setColor(selectedColor) {
             color = selectedColor;
+
         }
 
         function setTool(selectedTool) {

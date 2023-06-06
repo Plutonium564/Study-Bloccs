@@ -1,10 +1,12 @@
 html{
     background-image: url(./1390893.jpg);
 }
-#color-red{
-    margin-left: 530px;
+
+.main-div{
+    text-align: center;
 }
 canvas{
     margin-top: 35px;
     margin-left: 20px;
+    margin-right: 20px;
 }
