@@ -65,18 +65,27 @@
       var Sub = document.getElementById('class-sub').value;
       var Members = document.getElementById('class-no').value;
 
+      const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      const code = generateString(6)
+      
 
       if(Name.length !== 0 ){
         if(Sub.length !== 0){
           if(Members.length !== 0){
-            db.collection('class_room').add({
-              class_name:Name,
-              class_sub:Sub,
-              class_members:Members
+            var class_data = {
 
-            }).then((docref) => {
+                class_code:code,
+                class_name:Name,
+                class_sub:Sub,
+                class_members:Members
+
+            }
+
+            db.collection('ClassRoom').doc(code).set(class_data).then(() => {
                 console.log('Updated in DB')
                 window.open('./options.html','_self') //Here you should add what should happen next 
+              
+
             });
             
           }else{
@@ -88,8 +97,22 @@
       }else{
         alert('Please enter a name for your class');
       }
+
+      function generateString(length) {
+        let result = ' ';
+    const charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
+
+    return result;
+    }
+    }
+
+    
     </script>
+
+
 </body>
 
 </html>
