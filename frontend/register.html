@@ -102,7 +102,8 @@
             db.collection('users').add({
               name_:Name,
               class_:Class,
-              dob_:DOB
+              dob_:DOB,
+              level_:Level
 
             }).then((docref) => {
                 console.log('Updated in DB')
