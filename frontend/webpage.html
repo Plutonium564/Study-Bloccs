@@ -29,13 +29,14 @@
         <h1 id="main_heading">STUDY BLOCCS</h1>
 
         <btn id="loginBtn">Login</btn>
+    
 
 
     </div>
 
 
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
     
     <script type="module">
@@ -63,9 +64,21 @@
 
         document.getElementById('loginBtn').addEventListener('click',signinWithGoogle)
 
+        let provider = new firebase.auth.GoogleAuthProvider()
+        provider.addScope('email');
+
         function signinWithGoogle(){
             console.log('login')
+
+            firebase.auth().signInWithPopup(provider).then(res => {
+                console.log(res.user);
+            }).catch(e => {
+                console.log(e)
+            })
         }
+
+
+        
       </script>
 
    
