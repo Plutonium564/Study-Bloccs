@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Group Chat</title>
+    <style>
+        /* CSS styles for chat container */
+        body {
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+        }
+
+        .group-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #e0e0e0;
+        }
+
+        .group-info span {
+            font-weight: bold;
+        }
+
+        .chat-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        /* CSS styles for chat messages */
+        .message {
+            margin-bottom: 10px;
+            display: flex;
+        }
+
+        .message .user {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .message .text {
+            flex-grow: 1;
+        }
+
+        .message .time {
+            font-size: 12px;
+            color: #777;
+            margin-left: 5px;
+        }
+
+        /* CSS styles for chat input */
+        .input-container {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .chat-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .send-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .attach-button {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .question-button {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+    </div>
+    <div class="group-info">
+        <span>Group Name: My Group</span>
+        <span>Group ID: 123456</span>
+        <span>Subject: Group Subject</span>
+        <span>Members: 50</span>
+    </div>
+    <div class="chat-container">
+        <div class="message">
+            <span class="user">John:</span>
+            <span class="text">Hello everyone!</span>
+            <span class="time">12:30 PM</span>
+        </div>
+        <div class="message">
+            <span class="user">Alice:</span>
+            <span class="text">Hi John!</span>
+            <span class="time">12:31 PM</span>
+        </div>
+        <!-- Add more chat messages here -->
+
+        <div class="input-container">
+            <input type="text" class="chat-input" placeholder="Type your message">
+            <input type="file" class="file-input" id="fileInput" accept="image/*, .pdf">
+            <button class="attach-button" onclick="document.getElementById('fileInput').click()">Attach File</button>
+            <button class="send-button">Send</button>
+        </div>
+    </div>
+    <button class="question-button">Ask Question</button>
+</body>
+</html>
