@@ -27,8 +27,7 @@ button#four {
 }
 
 html {
-    background: -webkit-linear-gradient(to right, #155799, #159957);
-    background: linear-gradient(to right, #155799, #159957);
+    background-image: url(./1390893.jpg);
 }
 img{
     height: 75px;
