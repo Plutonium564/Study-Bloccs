@@ -92,11 +92,13 @@
       var Name = document.getElementById('name').value;
       var Class = document.getElementById('class').value;
       var DOB = document.getElementById('dob').value;
+      var Level = document.getElementById('degree');
 
 
       if(Name.length !== 0 ){
         if(Class.length !== 0){
           if(DOB.length !== 0){
+            if()
             db.collection('users').add({
               name_:Name,
               class_:Class,
