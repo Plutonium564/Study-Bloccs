@@ -5,7 +5,54 @@
     <style>
         #whiteboard {
             border: 1px solid black;
+            border-radius: 20px;
             background-color: white;
+        }
+
+        #color-red{
+            width: 25px;
+            height: 25px;
+            background-color: red;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        #color-blue{
+            width: 25px;
+            height: 25px;
+            background-color: blue;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        #color-green{
+            width: 25px;
+            height: 25px;
+            background-color: green;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        #color-black{
+            width: 25px;
+            height: 25px;
+            background-color: black;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .button{
+            border-radius: 20px;
+            border: none;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        .button:hover{
+            background-color: gray;
+        }
+        .button:click{
+            background-color: darkgray;
         }
     </style>
     <link rel="stylesheet" href="./whiteboard.css">
@@ -14,15 +61,18 @@
 
 <body>
     <canvas id="whiteboard" width="1400" height="750"></canvas>
-    <div>
-        <button id="color-red" onclick="setColor('red')">Red</button>
-        <button id="color-blue" onclick="setColor('blue')">Blue</button>
-        <button id="color-green" onclick="setColor('green')">Green</button>
-        <button id="tool-pen" onclick="setTool('pen')">Pen</button>
-        <button id="tool-pencil" onclick="setTool('pencil')">Pencil</button>
-        <button id="tool-highlighter" onclick="setTool('highlighter')">Highlighter</button>
-        <button id="tool-eraser" onclick="setTool('eraser')">Eraser</button>
-        <button onclick="clearCanvas()">Clear</button>
+    <div class="main-div">
+        <button id="color-black" onclick="setColor('black')"></button>
+        <button id="color-red" onclick="setColor('red')"></button>
+        <button id="color-blue" onclick="setColor('blue')"></button>
+        <button id="color-green" onclick="setColor('green')"></button>
+        <button class="button" id="tool-pen" onclick="setTool('pen')">Pen</button>
+        <button class="button" id="tool-pencil" onclick="setTool('pencil')">Pencil</button>
+        <button class="button" id="tool-highlighter" onclick="setTool('highlighter')">Highlighter</button>
+        <button class="button" id="tool-brush" onclick="setTool('brush')">Brush</button>
+        <button class="button" id="tool-eraser" onclick="setTool('eraser')">Eraser</button>
+        <button class="button" onclick="clearCanvas()">Clear</button>
+        <button class="button" onclick="back()">Back</button>
     </div>
 
     <script>
@@ -62,16 +112,22 @@
                     break;
                 case 'pencil':
                     context.lineTo(x, y);
-                    context.lineWidth = 2;
+                    context.lineWidth = 3;
                     break;
                 case 'highlighter':
                     context.lineTo(x, y);
                     context.lineWidth = 10;
                     context.globalAlpha = 0.2;
                     break;
-                case 'eraser':
-                    context.clearRect(x, y, 10, 10);
+                case 'brush':
+                    context.lineTo(x,y);
+                    context.lineWidth = 25;
+                    context.globalAlpha = 0.5;
                     break;
+                case 'eraser':
+                    context.clearRect(x, y, 100, 100);
+                    break;
+
             }
 
             context.stroke();
@@ -79,6 +135,7 @@
 
         function setColor(selectedColor) {
             color = selectedColor;
+
         }
 
         function setTool(selectedTool) {
@@ -87,6 +144,9 @@
 
         function clearCanvas() {
             context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        function back(){
+            window.open('./options.html','_self')
         }
     </script>
 </body>
