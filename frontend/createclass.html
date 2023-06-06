@@ -13,7 +13,7 @@
 
 <body>
     <br><br>
-    <form action="">
+    <div action="">
         <div class="headingsContainer">
             <h3>Create class</h3>
         </div>
@@ -22,22 +22,74 @@
         <div class="mainContainer">
 
             <label for="username">class name</label>
-            <input type="text" placeholder="Enter class name" name="username" required />
+            <input id="class-name" type="text" placeholder="Enter class name" name="username" required />
 
             <br /><br />
 
             <label for="pswrd">Subject</label>
-            <input type="password" placeholder="Enter Subject" name="pswrd" required />
+            <input id="class-sub" type="text" placeholder="Enter Subject" name="pswrd" required />
             <br /><br />
             <label for="pswrd">Max Members</label><br>
-            <input type="number" min="0" placeholder="Enter Max members" name="pswrd" required />
+            <input id="class-no" type="number" min="0" placeholder="Enter Max members" name="pswrd" required />
             <br>
             <br>
 
 
-            <button type="submit">Create class</button>
+            <button id="create-class" type="submit">Create class</button>
         </div>
-    </form>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+  <script type="module">
+    const firebaseConfig = {
+      apiKey: "AIzaSyB2WRLuDA_QlwCSdx7yCijLIoJbuKzrfT8",
+      authDomain: "study-bloccs.firebaseapp.com",
+      projectId: "study-bloccs",
+      storageBucket: "study-bloccs.appspot.com",
+      messagingSenderId: "263947713978",
+      appId: "1:263947713978:web:c10cee6158db2d5fc2f183",
+      measurementId: "G-EPC695STP1"
+    };
+  
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    document.getElementById('create-class').addEventListener('click', createClass)
+
+
+    function createClass(){
+      var Name = document.getElementById('class-name').value;
+      var Sub = document.getElementById('class-sub').value;
+      var Members = document.getElementById('class-no').value;
+
+
+      if(Name.length !== 0 ){
+        if(Sub.length !== 0){
+          if(Members.length !== 0){
+            db.collection('class_room').add({
+              class_name:Name,
+              class_sub:Sub,
+              class_members:Members
+
+            }).then((docref) => {
+                console.log('Updated in DB')
+                window.open('./options.html','_self') //Here you should add what should happen next 
+            });
+            
+          }else{
+            alert('Please enter the max number of members')
+          }
+        }else{
+          alert('Please enter name of the subject')
+        }
+      }else{
+        alert('Please enter a name for your class');
+      }
+    }
+    </script>
 </body>
 
 </html>
