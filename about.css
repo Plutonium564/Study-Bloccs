@@ -1,0 +1,16 @@
+html{
+    background-image: url(./2.jpg);
+}
+#about{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 108px;
+}
+p{
+    font-size: x-large;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 100px;
+    color: rgb(0, 0, 0);
+}
+.contact{
+    font-family: 'Roboto Mono', monospace;
+}

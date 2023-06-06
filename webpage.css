@@ -1,0 +1,26 @@
+#main_logo{
+    text-align: center;
+}
+#heading_logo{
+    height: 99px;
+    width: 243px;
+}
+#side_contents{
+    margin-left: 100px;
+    margin-top: 25px;
+    font-family: 'Bungee', cursive;
+}
+html{
+    background-image: url(./1390893.jpg);
+}
+#main_heading{
+    color: azure;
+}
+a#about_id{
+    color: aliceblue;
+}
+#study_bloccs{
+    text-align: center;
+    font-family: 'Bungee', cursive;
+    font-size: 70px;
+}
