@@ -1,100 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="loginpage.css" /> -->
-    <link rel="stylesheet" href="./register.css">
 
-    <title>Login page in HTML</title>
-  </head>
-  <body>
-    <h1>Register for Study Bloccs</h1>
-    <form action="">
-      <!-- Headings for the form -->
-      <div class="headingsContainer">
-        <h3>REGISTER</h3>
-        <p>register with your E-mail</p>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <!-- Main container for all inputs -->
-      <div class="mainContainer">
+  <link rel="stylesheet" href="./register.css">
 
-        <br /><br />
-        <label for="name">Your name</label>
-        <input
-          type="text"
-          placeholder="Enter name"
-          name="name"
-          required
-        />
+  <title>Login page in HTML</title>
+</head>
 
-        <br /><br />
+<body>
+  <h1>Register for Study Bloccs</h1>
+  <form action="">
 
-        <!-- Class -->
-        <label for="number">Your Class</label>
-        <input
-          type="number"
-          placeholder="Class"
-          name="number"
-          required
-        />
-        <br /><br />
+    <div class="headingsContainer">
+      <h3>REGISTER</h3>
+      <p>register with your E-mail</p>
+    </div>
 
-        <!-- Date of birth -->
-        <label for="dob">enter DOB</label><br>
-        <input
-          type="date"
-          placeholder="enter DOB"
-          name="dob"
-          required
-        />
+    <div class="mainContainer">
 
-        
-        
-        <!-- sub container for the checkbox and forgot password link -->
-        <div class="subcontainer">
-          <label>
-            <input type="checkbox" checked="checked" name="remember" /> Remember
-            me
-          
-        </div>
+      <br /><br />
+      <label for="name">Your name</label>
+      <input type="text" placeholder="Enter name" name="name" required />
 
         <!-- Submit button -->
         <button type="submit">Register</button>
+        <a href="./options.html" id="last_id">Done?</a>
+        
 
-        <!-- Sign up link -->
-        <p class="login">Already a member? <a href="#" id="login">Login here!</a></p>
       </div>
     </form>
-
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
-    
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-       
-       
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyB2WRLuDA_QlwCSdx7yCijLIoJbuKzrfT8",
-          authDomain: "study-bloccs.firebaseapp.com",
-          projectId: "study-bloccs",
-          storageBucket: "study-bloccs.appspot.com",
-          messagingSenderId: "263947713978",
-          appId: "1:263947713978:web:c10cee6158db2d5fc2f183",
-          measurementId: "G-EPC695STP1"
-        };
-      
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
-      </script> 
   </body>
 </html>
